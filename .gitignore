@@ -1,0 +1,8 @@
+/doc/
+/libs/
+/.crystal/
+/.shards/
+/lib/
+/bin/
+/coverage/
+/spec/fixtures/tmp-*

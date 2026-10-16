@@ -1,0 +1,17 @@
+name: image_processing.cr
+version: 1.14.0
+
+authors:
+  - image_processing.cr contributors
+
+description: |
+  Crystal port of the Ruby image_processing gem (v1.14.0):
+  high-level image processing pipelines for libvips and ImageMagick.
+
+crystal: ">= 1.11.0"
+
+license: MIT
+
+scripts:
+  postinstall: |
+    # no build steps required; libvips and ImageMagick are loaded at link time
