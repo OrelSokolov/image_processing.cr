@@ -1,5 +1,5 @@
 require "spec"
-require "../src/image_processing"
+require "../src/image_processing_cr"
 
 ENV["VIPS_WARNING"] = "0" # disable libvips warnings
 

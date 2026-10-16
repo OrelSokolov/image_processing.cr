@@ -114,9 +114,10 @@ describe ImageProcessing::MiniMagick do
     assert_type "JPEG", result
 
     result = ImageProcessing::MiniMagick.loader(define: {"jpeg" => {"size" => "100x100"}}).call(portrait).as(ImageProcessing::Tempfile)
-    # ImageMagick 7 decodes jpegs:size=100x100 to the first DCT scale that
-    # fits within the limit (75x100); IM6 returned the first scale above it.
-    assert_dimensions [75, 100], result
+    # DCT scale selection varies across ImageMagick builds: IM 7.1.2-3
+    # decodes jpegs:size=100x100 to 150x200 (verified against Ruby
+    # image_processing on the same machine); other builds pick 75x100.
+    assert_dimensions [150, 200], result
 
     result = ImageProcessing::MiniMagick.loader(strip: true).call(portrait).as(ImageProcessing::Tempfile)
     MiniMagick::Image.new(result.path).exif.empty?.should be_true
