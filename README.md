@@ -25,7 +25,7 @@ Add the shard to your `shard.yml`:
 ```yaml
 dependencies:
   image_processing:
-    github: OlegSokolov/image_processing.cr
+    github: OrelSokolov/image_processing.cr
 ```
 
 The library links against **libvips** (>= 8.6; built and tested with 8.18)
